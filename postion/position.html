@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 400vh;
+            /* background-color: #b38383; */
+            position: relative;
+        }
+
+        .navbar{
+            background-color: white;
+            position: fixed;
+            padding: 0.8rem;
+            z-index: 11111;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        section{
+            height: 100vh; 
+            background-color: blue; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div{
+            position: relative;
+        }
+
+        h3{
+            top: 35%;
+            left: 35%;
+            font-weight: 800;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+        }
+
+         .shop-btn{
+            position: absolute;
+            top: 55%;
+            border-radius: 20px;
+            border: none;
+            background-color: yellow;
+            padding: 6px 16px;
+            font-weight: 800;
+            color: black;
+            font-size: 18px;
+            left: 35%;
+        }
+
+        .img-shadow{
+           background-color: black;
+        position: absolute;
+        height: 250px;
+        top: 0;
+        opacity: 0.4;
+        width: 400px;
+        z-index: 1111;
+        }
+       
+    </style>
+  </head>
+  
+   
+        <nav class="navbar">
+            <ul>
+                <li>
+                    Logo
+                </li>
+                <li>Home</li>
+                <li>Shop</li>
+                <li>Contact</li>
+                <li>About</li>
+                <li><button>Singup</button></li>
+                <li><button>Login</button></li>
+            </ul>
+        </nav>
+    
+
+    <section >
+            <div >
+                <img height="250" width="400" src="./blog-02.jpg" alt="blog-image">
+                <h3>T-Shirt</h3>
+                <div class="img-shadow"></div>
+                <button class="shop-btn">Shop</button>
+            </div>
+    </section>
+
+  </body>
+</html>
