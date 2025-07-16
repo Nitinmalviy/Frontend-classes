@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 2rem;
+        background-color: cadetblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card {
+        height: 250px;
+        width: 250px;
+        position: relative;
+      }
+
+      .card img {
+        height: 250px;
+        width: 250px;
+      }
+
+      .overlap {
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 600ms;
+      }
+
+      .overlap:hover {
+        opacity: 0.6;
+        transition: 600ms;
+      }
+
+      .shop-now-btn {
+        background-color: navy;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        border: 3px solid #ffff;
+        color: #ffff;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+
+      .shop-now-btn:hover {
+        opacity: 1 !important;
+        background-color: navy;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="./images.jpeg" alt="mrf-bat" />
+      <div class="overlap">
+        <button class="shop-now-btn">Shop</button>
+      </div>
+    </div>
+  </body>
+</html>
