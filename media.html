@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .hero-con {
+        display: flex;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      .hero-left {
+        width: 26%;
+        height: 100vh;
+        background-color: blueviolet;
+      }
+
+      .hero-right {
+        width: 74%;
+        height: 100vh;
+        background-color: #a44b4b;
+      }
+
+      .hero-caro {
+        height: 80vh;
+        position: absolute;
+        top: 5%;
+        width: 25%;
+        left: 10%;
+        background-color: white;
+        border-radius: 30px;
+        border: 2px solid black;
+      }
+
+      /* break point's */
+
+      /* @media (max-width: 1450px) and (min-width: 1200px) {
+        body {
+          background-color: antiquewhite;
+        }
+      }
+
+      @media (max-width: 1200px) and (min-width: 1080px) {
+        body {
+          background-color: rgb(145, 94, 26);
+        }
+      }
+
+      @media (max-width: 1080px) and (min-width: 768px) {
+        body {
+          background-color: rgb(11, 11, 10);
+        }
+      }
+*/
+      @media (max-width: 768px) and (min-width: 280px) {
+        .hero-con {
+          flex-direction: column;
+        }
+
+        .hero-left {
+          width: 100%;
+          height: 50vh;
+          background-color: blueviolet;
+        }
+
+        .hero-right {
+          width: 100%;
+          height: 120vh;
+          background-color: white;
+        }
+
+        .hero-caro {
+          height: 80vh;
+          width: 60%;
+          top: 30%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        .hero-right-content {
+          margin-top: 60%;
+        }
+
+        .hero-right-content h2 {
+          text-align: center;
+          padding: 0.8rem;
+        }
+
+        .hero-right-content p {
+          padding: 0.8rem;
+          text-align: center;
+        }
+
+        .hero-right-content div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+        }
+      }
+
+      /* @media (max-width: 548px) and (min-width: 180px) {
+        body {
+          background-color: rgb(245, 16, 16);
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- hero section  -->
+
+    <section class="hero-con">
+      <div class="hero-left">
+        <!-- blue -->
+      </div>
+      <div class="hero-right">
+        <!-- white -->
+        <div class="hero-right-content">
+          <h2>Indori special Food</h2>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected
+            humour, or randomised words
+          </p>
+          <div>
+            <button>Contact Us</button>
+            <button>Order Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="hero-caro"></div>
+    </section>
+  </body>
+</html>

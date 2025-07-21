@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        position: relative;
+      }
+      .navbar {
+        position: fixed;
+        top: 0;
+        height: 40px;
+        width: 100%;
+        background-color: aliceblue;
+      }
+
+      .navbar-ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .hero-section {
+        max-height: auto;
+        min-height: 100vh;
+        background-color: #272727;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .card {
+        background-color: rgb(195, 171, 218);
+        display: flex;
+        height: 300px;
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .mob-nav {
+        display: none;
+      }
+
+      button {
+        margin-top: 0.5rem;
+        padding: 8px 16px;
+        color: white;
+        background-color: black;
+        border: 2px solid white;
+        border-radius: 20px;
+        font-weight: bolder;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+        transition: 500ms;
+        cursor: pointer;
+      }
+      /* tab view */
+
+      @media (min-width: 761px) and (max-width: 1080px) {
+        .card {
+          background-color: cadetblue;
+        }
+      }
+
+      /* tab view */
+
+      @media (min-width: 1080px) and (max-width: 1200px) {
+        /* laptop view */
+        .card {
+          background-color: rgb(162, 55, 55);
+        }
+      }
+
+      /* mobile view */
+
+      @media (min-width: 280px) and (max-width: 540px) {
+        .navbar {
+          padding: 7.5px;
+        }
+        .navbar-ul li {
+          display: none;
+        }
+
+        .icon-con {
+          height: 25px;
+          width: 25px;
+          float: right;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          cursor: pointer;
+        }
+
+        .icon-con div {
+          height: 4px;
+          border-radius: 2px;
+          width: 100%;
+          background-color: black;
+        }
+
+        .mob-nav {
+          position: fixed;
+          z-index: 1;
+          background-color: rgb(162, 66, 252);
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          /* display: none; */
+          justify-content: center;
+          align-items: center;
+        }
+
+        .mob-nav-ul {
+          height: 150px;
+          width: 100px;
+          padding: 1rem;
+          list-style: none;
+        }
+        .mob-nav-ul li {
+          color: white;
+          cursor: pointer;
+          font-size: 26px;
+          text-align: center;
+        }
+        .mob-nav-ul li:hover {
+          text-underline-position: below;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-ul">
+        <li>Home</li>
+        <li>Shop</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li><button>Login</button></li>
+      </ul>
+
+      <div class="icon-con">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- mobile navbar view -->
+
+    <nav class="mob-nav">
+      <ul class="mob-nav-ul">
+        <li>Home</li>
+        <li>Shop</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li><button>Login</button></li>
+      </ul>
+    </nav>
+    <!-- Website , mob 280px IPHONE SE to 480px , tab 480px to 761px, lp 761px to 1080px 1200px , desktop 1080px to 1600px & 1900px , tv -->
+
+    <section class="hero-section">
+      <div class="card">
+        <div>
+          <img src="../images.jpeg" alt="mrf-bat" />
+        </div>
+        <div class="btn-con">
+          <button>Buy Now</button>
+          <button>Add To Cart</button>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="card">
+        <div>
+          <img src="../images.jpeg" alt="mrf-bat" />
+        </div>
+        <div class="btn-con">
+          <button>Buy Now</button>
+          <button>Add To Cart</button>
+        </div>
+      </div>
+      <!--  -->
+      <div class="card">
+        <div>
+          <img src="../images.jpeg" alt="mrf-bat" />
+        </div>
+        <div class="btn-con">
+          <button>Buy Now</button>
+          <button>Add To Cart</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

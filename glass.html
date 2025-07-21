@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      section {
+        height: 100vh;
+        width: 100%;
+        background-color: #272727;
+        display: grid;
+        place-content: center;
+      }
+
+      .glass-card {
+        width: 240px;
+        height: 360px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+          inset 0 0 2px 1px rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .glass-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.8),
+          transparent
+        );
+      }
+
+      .glass-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.8),
+          transparent,
+          rgba(255, 255, 255, 0.3)
+        );
+      }
+
+      .new-mor-con {
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        background-color: white;
+        place-content: center;
+      }
+
+      .new-mor {
+        height: 350px;
+        width: 350px;
+        border-radius: 23px;
+        background: #e0e0e0;
+        box-shadow: 19px 19px 38px #c3c3c3, -19px -19px 38px #fdfdfd;
+      }
+
+      /* From Uiverse.io by mobinkakei */
+      .label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: #394a56;
+      }
+
+      .label-text {
+        margin-left: 16px;
+      }
+
+      .toggle {
+        isolation: isolate;
+        position: relative;
+        height: 30px;
+        width: 60px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+          4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+      }
+
+      .toggle-state {
+        display: none;
+      }
+
+      .indicator {
+        height: 100%;
+        width: 200%;
+        background: #ecf0f3;
+        border-radius: 15px;
+        transform: translate3d(-75%, 0, 0);
+        transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+      }
+
+      .toggle-state:checked ~ .indicator {
+        transform: translate3d(25%, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="glass-card"></div>
+    </section>
+
+    <section class="new-mor-con">
+      <div class="new-mor"></div>
+
+      <!-- From Uiverse.io by mobinkakei -->
+      <label class="label">
+        <div class="toggle">
+          <input
+            class="toggle-state"
+            type="checkbox"
+            name="check"
+            value="check"
+          />
+          <div class="indicator"></div>
+        </div>
+      </label>
+    </section>
+  </body>
+</html>
