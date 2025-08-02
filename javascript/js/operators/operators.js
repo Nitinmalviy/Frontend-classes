@@ -81,3 +81,4 @@ console.log("Result:", result3);
 console.log("Result:", result4);
 console.log("Result:", result5);
 console.log("Result:", result6);
+// console.log("Square:");

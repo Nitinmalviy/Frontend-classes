@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        width: 100%;
+        background-color: #272727;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h4>Well Come Atm</h4></center>
+    <center>
+      <div>
+        <h6>Balance check Press 4</h6>
+        <h6>Deposit Press 3</h6>
+        <h6>Withdraw Press 2</h6>
+        <h6>Exit press 1</h6>
+      </div>
+    </center>
+    <script>
+      const choice = prompt(
+        "Enter Choice Balance check Press 4 Deposit Press 3 Withdraw Press 2 Exit press 1"
+      );
+
+      let c = parseInt(choice);
+
+      console.log(typeof c);
+
+      switch (c) {
+        case 1:
+          console.log("Exiting .....");
+          break;
+        case 2:
+          console.log("Withdrawing .....");
+          break;
+        case 3:
+          console.log("Depositing");
+          break;
+        default:
+          prompt("Select valid choices");
+          break;
+      }
+    </script>
+  </body>
+</html>
