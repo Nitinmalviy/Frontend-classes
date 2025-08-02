@@ -8,6 +8,8 @@ while (number > 0) {
     number = Math.floor(number / 10);  // update the number with updated number
 }
 
+//  1 2 3 
+
 if (original == rev) {
     console.log("Number is Palindrome");
 
