@@ -18,3 +18,5 @@ do {
 } while (userInput <= 0 || isNaN(userInput))
 
 console.log("Your Entered Number");
+
+//  153 1 + 125 + 27 = 153   

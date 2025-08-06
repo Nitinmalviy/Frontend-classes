@@ -26,9 +26,9 @@ console.log(heroes.indexOf("Shaktiman"));
 // heroes.pop()
 // console.log("After", heroes);
 
-console.log("Before", heroes);
+// console.log("Before", heroes);
 // heroes.length
-console.log("Length of Array", heroes.length);
+// console.log("Length of Array", heroes.length);
 
-let 
-heroes.forEach((ele) => { })
+// let
+// heroes.forEach((ele) => { })

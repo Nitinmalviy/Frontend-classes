@@ -1,4 +1,4 @@
-let number = 132;
+let number = 1112;
 let rev = 0;
 let original = number;
 
@@ -16,3 +16,6 @@ if (original == rev) {
 } else {
     console.log("Number is not Palindrome");
 }
+
+
+//    
