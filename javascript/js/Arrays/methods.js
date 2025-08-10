@@ -20,14 +20,24 @@ let spliceResult = superhero.splice(2, 2, "captain us", "hulk", "black panther")
 
 console.log("spliceResult :", superhero);
 
-superhero.forEach((element, index) => { })
-superhero.map((element, index) => { })
-superhero.filter((element, index) => { })
-superhero.reduce((prev, current, index) => { })
+const foreachResult = superhero.forEach((element, index) => {
+    console.log(index, ":", element);
 
-let sent = ["I ", "love ", "coding"]
+})
 
-console.log(sent.join(","));
+console.log(foreachResult);
 
-let numbers = [23, 45, 67, 89, 9, 47, 89];
+
+
+
+
+// superhero.map((element, index) => { })
+// superhero.filter((element, index) => { })
+// superhero.reduce((prev, current, index) => { })
+
+// let sent = ["I ", "love ", "coding"]
+
+// console.log(sent.join(","));
+
+// let numbers = [23, 45, 67, 89, 9, 47, 89];
 
