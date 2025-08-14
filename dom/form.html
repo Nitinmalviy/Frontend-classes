@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(13, 12, 12);
+      }
+
+      form {
+        display: grid;
+        gap: 0.7rem;
+        color: white;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .validate-alert {
+        color: red;
+        font-weight: 600;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="sing-up-submit">
+      <div class="validate-alert"></div>
+      <div>
+        <label for="username">Username</label>
+        <div>
+          <input
+            type="text"
+            placeholder="username123"
+            name="username"
+            id="username"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <div>
+          <input
+            type="email"
+            placeholder="jhon@example.com"
+            name="email"
+            id="email"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <div>
+          <input
+            type="password"
+            placeholder="*******"
+            name="password"
+            id="password"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="c-password">Confirm Password</label>
+        <div>
+          <input
+            type="password"
+            placeholder="*******"
+            name="c-password"
+            id="c-password"
+          />
+        </div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      let submitForm = document.getElementById("sing-up-submit");
+      let inputUsername = document.getElementById("username");
+      let inputEmail = document.getElementById("email");
+      let inputPassword = document.getElementById("password");
+      let inputConPassword = document.getElementById("c-password");
+      let validateAlert = document.querySelector(".validate-alert");
+      //   add event listener
+      submitForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (
+          inputUsername.value.toString().trim() === "" ||
+          inputEmail.value.toString().trim() === "" ||
+          inputPassword.value.toString().trim() === "" ||
+          inputConPassword.value.toString().trim() === ""
+        ) {
+          validateAlert.textContent = "All filed's are required..";
+        }
+
+        console.log(
+          "hello",
+          inputUsername.value,
+          inputEmail.value,
+          inputPassword.value,
+          inputConPassword.value
+        );
+      });
+    </script>
+  </body>
+</html>
