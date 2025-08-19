@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+  </head>
+  <body>
+    <section>
+      <center>
+        <div>
+          <form id="task-con">
+            <div id="success-msg"></div>
+            <div id="error-msg"></div>
+            <input type="text" placeholder="add task" name="task" id="task" />
+            <div id="task-list"></div>
+            <button type="submit">Add</button>
+            <div>
+              <ul id="ul"></ul>
+            </div>
+          </form>
+        </div>
+      </center>
+    </section>
+    <script>
+      let form = document.getElementById("task-con");
+      let task = document.getElementById("task");
+      let errMsg = document.getElementById("error-msg");
+      let successMsg = document.getElementById("success-msg");
+      let ul = document.getElementById("ul");
+      errMsg = "";
+
+      //   let taskList = [];
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let valid = true;
+        if (task.value == "") {
+          errMsg.textContent = "Please enter something..";
+          valid = false;
+        } else {
+          let task = e.target.task.value;
+          let li = document.createElement("li");
+          li.innerText = task;
+          ul.appendChild(li);
+          task.innerText = "";
+        }
+
+        if (valid) {
+          successMsg.innerText = "Task added.. in list";
+        }
+      });
+    </script>
+  </body>
+</html>

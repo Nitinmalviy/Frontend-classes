@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f1f1f1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .login-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      .login-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .login-container input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      .error {
+        color: red;
+        font-size: 13px;
+        margin-top: 3px;
+      }
+      .login-container button {
+        width: 100%;
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        margin-top: 15px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .login-container button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <!-- Email -->
+        <label>Email</label>
+        <input type="text" id="email" placeholder="Enter Email" />
+        <div id="emailError" class="error"></div>
+
+        <!-- Password -->
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter Password" />
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("loginForm");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // prevent form submit refresh
+
+        let valid = true;
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        // Regex patterns
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+
+        // Validate Email
+        if (!emailRegex.test(email.value.trim())) {
+          emailError.textContent = "Enter a valid email address";
+          valid = false;
+        }
+
+        // Validate Password
+        if (!passwordRegex.test(password.value.trim())) {
+          passwordError.textContent =
+            "Password must be at least 6 chars, letters & numbers";
+          valid = false;
+        }
+
+        if (valid) {
+          alert("Login Successful ✅");
+        }
+      });
+    </script>
+  </body>
+</html>

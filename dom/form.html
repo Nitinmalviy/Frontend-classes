@@ -101,15 +101,26 @@
       //   add event listener
       submitForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        if (
-          inputUsername.value.toString().trim() === "" ||
-          inputEmail.value.toString().trim() === "" ||
-          inputPassword.value.toString().trim() === "" ||
-          inputConPassword.value.toString().trim() === ""
-        ) {
-          validateAlert.textContent = "All filed's are required..";
+        if (inputUsername.value === "") {
+          inputUsername.style.border = "2px solid red";
+          console.log("-");
         }
 
+        if (!inputUsername.value.match(/^[a-z]+$/)) {
+          validateAlert.innerHTML = "only in alphabetical";
+        }
+
+        if (inputEmail.value.toString().trim() === "") {
+          inputEmail.style.border = "2px solid red";
+        }
+
+        if (inputPassword.value.toString().trim() === "") {
+          inputPassword.style.border = "2px solid red";
+        }
+
+        if (inputConPassword.value.toString().trim() === "") {
+          inputConPassword.style.border = "2px solid red";
+        }
         console.log(
           "hello",
           inputUsername.value,

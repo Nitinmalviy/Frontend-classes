@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* login page css */
+.login-container {
+  min-height: 100vh;
+  background-color: grey;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.login-sub-container {
+    height: 500px;
+    width: 500px;
+    background-color: white;
+}
