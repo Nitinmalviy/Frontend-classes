@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <form id="login-form">
+        <input type="email" placeholder="email" name="email" id="email" />
+        <button type="submit">Save</button>
+      </form>
+    </section>
+    <script>
+      let loginForm = document.getElementById("login-form");
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let email = e.target.email.value;
+        console.log(email);
+
+        // sessionStorage.setItem("user-email", email);
+        localStorage.setItem("user-email", email);
+      });
+    </script>
+  </body>
+</html>

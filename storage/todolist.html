@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+    <style></style>
+  </head>
+  <body>
+    <section>
+      <center>
+        <center><h4>Add Task</h4></center>
+        <form id="task-form">
+          <input type="text" placeholder="Add task" name="task" id="task" />
+          <button type="submit">Add</button>
+
+          <div>
+            <ul id="ul"></ul>
+          </div>
+        </form>
+      </center>
+    </section>
+
+    <script>
+      let TaskForm = document.getElementById("task-form");
+      let tasks = [];
+
+      let ul = document.getElementById("ul");
+      TaskForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let task = e.target.task.value;
+        newTask = { id: tasks.length + 1, task: task, isCompleted: false };
+        tasks.push(newTask);
+        localStorage.setItem("todo", JSON.stringify(tasks));
+        getData();
+      });
+
+      function getData() {
+        let userTasks = JSON.parse(localStorage.getItem("todo"));
+        ul.innerHTML = "";
+        userTasks.map((element, index) => {
+          let li = document.createElement("li");
+          let checkbox = document.createElement("input");
+          checkbox.setAttribute("type", "checkbox");
+          let span = document.createElement("span");
+          span.innerHTML = element.task;
+          li.appendChild(span);
+          li.appendChild(checkbox);
+          console.log(li);
+          ul.appendChild(li);
+        });
+      }
+     getData()
+    </script>
+  </body>
+</html>
