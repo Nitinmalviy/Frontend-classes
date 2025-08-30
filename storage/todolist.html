@@ -29,7 +29,7 @@
       TaskForm.addEventListener("submit", (e) => {
         e.preventDefault();
         let task = e.target.task.value;
-        newTask = { id: tasks.length + 1, task: task, isCompleted: false };
+        let newTask = { id: tasks.length + 1, task: task, isCompleted: false };
         tasks.push(newTask);
         localStorage.setItem("todo", JSON.stringify(tasks));
         getData();
@@ -50,7 +50,7 @@
           ul.appendChild(li);
         });
       }
-     getData()
+      getData();
     </script>
   </body>
 </html>

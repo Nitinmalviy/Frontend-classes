@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Promise is resolved");
+        }, 3000);
+      });
+
+      const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject("Promise is rejected");
+        }, 3000);
+      });
+
+      promise1
+        .then((data) => {
+          console.log("Promise1 ", data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      promise2
+        .then((data) => {
+          console.log("Promise2 ", data);
+        })
+        .catch((err) => {
+          console.log("Promise2 error ", err);
+        })
+        .finally(() => {
+          console.log("---------------");
+        });
+    </script>
+  </body>
+</html>

@@ -4,6 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+        opacity: 0.6;
+      }
+
+      button {
+        margin: 5px;
+        padding: 6px 12px;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <section>
@@ -11,44 +44,93 @@
         <div>
           <form id="task-con">
             <div id="success-msg"></div>
-            <div id="error-msg"></div>
-            <input type="text" placeholder="add task" name="task" id="task" />
-            <div id="task-list"></div>
+            <div id="error-msg" style="color: red"></div>
+            <input type="text" placeholder="Add task" name="task" id="task" />
             <button type="submit">Add</button>
-            <div>
-              <ul id="ul"></ul>
-            </div>
           </form>
+
+          <!-- Filter Buttons -->
+          <div>
+            <button id="all">All</button>
+            <button id="pending">Pending</button>
+            <button id="completed">Completed</button>
+          </div>
+
+          <ul id="ul"></ul>
         </div>
       </center>
     </section>
+
     <script>
       let form = document.getElementById("task-con");
-      let task = document.getElementById("task");
+      let taskInput = document.getElementById("task");
       let errMsg = document.getElementById("error-msg");
       let successMsg = document.getElementById("success-msg");
       let ul = document.getElementById("ul");
-      errMsg = "";
 
-      //   let taskList = [];
+      let tasks = []; // store tasks with status
+
+      // Add task
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        let valid = true;
-        if (task.value == "") {
+        errMsg.textContent = "";
+        successMsg.textContent = "";
+
+        if (taskInput.value.trim() === "") {
           errMsg.textContent = "Please enter something..";
-          valid = false;
-        } else {
-          let task = e.target.task.value;
-          let li = document.createElement("li");
-          li.innerText = task;
-          ul.appendChild(li);
-          task.innerText = "";
+          return;
         }
 
-        if (valid) {
-          successMsg.innerText = "Task added.. in list";
-        }
+        tasks.push({ text: taskInput.value, status: "pending" });
+        taskInput.value = "";
+        successMsg.textContent = "Task added in list";
+
+        renderTasks();
       });
+
+      // Render tasks
+      function renderTasks(filter = "all") {
+        ul.innerHTML = "";
+        tasks.forEach((task, index) => {
+          if (filter === "all" || filter === task.status) {
+            let li = document.createElement("li");
+
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = task.status === "completed";
+
+            let span = document.createElement("span");
+            span.innerText = task.text;
+
+            if (task.status === "completed") {
+              span.classList.add("completed");
+            }
+
+            checkbox.addEventListener("change", () => {
+              tasks[index].status = checkbox.checked ? "completed" : "pending";
+              renderTasks(filter);
+            });
+
+            li.appendChild(checkbox);
+            li.appendChild(span);
+            ul.appendChild(li);
+          }
+        });
+      }
+
+      document.getElementById("all").addEventListener("click", () => {
+        renderTasks("all");
+      });
+
+      document.getElementById("pending").addEventListener("click", () => {
+        renderTasks("pending");
+      });
+
+      document.getElementById("completed").addEventListener("click", () => {
+        renderTasks("completed");
+      });
+
+      renderTasks(); // initial call
     </script>
   </body>
 </html>
