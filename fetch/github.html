@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Profile Viewer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .main-container {
+        height: 100vh;
+        width: 100%;
+        background-color: beige;
+        display: flex;
+        align-items: center;
+        padding: 3rem 2rem;
+        flex-direction: column;
+      }
+
+      .github-profile-container {
+        border: 2px solid black;
+        min-height: 400px;
+        margin: 1rem 0;
+        width: 350px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-radius: 10px;
+        background: white;
+      }
+
+      .github-user-profile {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        border: 2px solid gray;
+        margin-bottom: 1rem;
+      }
+
+      .profile-info {
+        text-align: left;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .profile-info p {
+        margin: 0.3rem 0;
+      }
+
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <form id="form-id">
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter your GitHub username"
+          id="username"
+        />
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="github-profile-container" id="github-container">
+        <p>Profile will appear here...</p>
+      </div>
+    </div>
+
+    <script>
+      let githubContainer = document.querySelector(".github-profile-container");
+
+      document
+        .getElementById("form-id")
+        .addEventListener("submit", async (event) => {
+          try {
+            event.preventDefault();
+            let username = event.target.username.value.trim();
+            let url = `https://api.github.com/users`;
+
+            if (username === "") {
+              return alert("Please enter something in username");
+            }
+
+            let response = await fetch(`${url}/${username}`, { method: "GET" });
+            let data = await response.json();
+
+            if (response.ok) {
+              console.log("-----", data);
+
+              let githubUiHtml = `
+                <div>
+                  <img class="github-user-profile" src="${data.avatar_url}" alt="Profile Picture">
+                  <h2>${data.name || "No Name Provided"}</h2>
+                  <p>@${data.login}</p>
+                </div>
+                <div class="profile-info">
+                  <p><b>Bio:</b> ${data.bio || "No bio available"}</p>
+                  <p><b>Location:</b> ${data.location || "Not specified"}</p>
+                  <p><b>Public Repos:</b> ${data.public_repos}</p>
+                  <p><b>Followers:</b> ${data.followers}</p>
+                  <p><b>Following:</b> ${data.following}</p>
+                  <p><b>Company:</b> ${data.company || "Not specified"}</p>
+                  <p><b>Blog:</b> <a href="${data.blog}" target="_blank">${data.blog || "No blog"}</a></p>
+                  <p><b>Profile:</b> <a href="${data.html_url}" target="_blank">View on GitHub</a></p>
+                </div>
+              `;
+
+              githubContainer.innerHTML = githubUiHtml;
+            } else {
+              githubContainer.innerHTML = `<p style="color:red">User not found!</p>`;
+            }
+          } catch (error) {
+            console.log(error);
+            githubContainer.innerHTML = `<p style="color:red">Something went wrong. Try again.</p>`;
+          }
+        });
+    </script>
+  </body>
+</html>
