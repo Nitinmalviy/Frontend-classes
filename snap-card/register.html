@@ -9,13 +9,29 @@
   <body>
     <div class="form-main">
       <div class="form-box">
-        <form class="form">
+        <form class="form" id="register-form">
+          <span id="success-message"></span>
           <span class="title">Sign up</span>
           <span class="subtitle">Create a free account with your email.</span>
           <div class="form-container">
-            <input type="text" class="input" placeholder="Full Name" />
-            <input type="email" class="input" placeholder="Email" />
-            <input type="password" class="input" placeholder="Password" />
+            <input
+              type="text"
+              name="username"
+              class="input"
+              placeholder="Username"
+            />
+            <input
+              type="email"
+              name="email"
+              class="input"
+              placeholder="Email"
+            />
+            <input
+              type="password"
+              name="password"
+              class="input"
+              placeholder="Password"
+            />
           </div>
           <button type="submit">Sign up</button>
         </form>
